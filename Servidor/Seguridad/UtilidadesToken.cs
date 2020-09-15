@@ -27,7 +27,7 @@ namespace ApiWebNetCore.Seguridad
         {
             var claims = new Claim[]
             {
-                new Claim(ClaimTypes.Name, usuario.CodigoUsuario),
+                new Claim(ClaimTypes.Name, usuario.UsuarioId.ToString()),
                 new Claim(nameof(TokenClaimNames.PkUsuario),usuario.UsuarioId.ToString()),
                 new Claim(nameof(TokenClaimNames.HostName),hostName),
                 new Claim(nameof(TokenClaimNames.AplicationID),aplicactionID.ToString()),

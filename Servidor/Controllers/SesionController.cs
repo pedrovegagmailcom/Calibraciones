@@ -24,10 +24,10 @@ namespace GL2017.API.Controladores.Seguridad
             _mapper = mapper;
         }
 
-        public async Task<UsuarioSesionDTO> BuscarPorPassworAsync(string codigoUsuario, string password)
+        public async Task<UsuarioSesionDTO> BuscarUsuarioAsync(Guid codigoUsuario)
         {
             
-            var usuario = await _seguridadRepositorio.BuscarAsync(codigoUsuario, password);
+            var usuario = await _seguridadRepositorio.BuscarAsync(codigoUsuario);
             if (usuario != null)
             {
                 var usuarioSesion = _mapper.Map<UsuarioSesionDTO, UsuarioSesionDTO>(usuario);
@@ -38,13 +38,13 @@ namespace GL2017.API.Controladores.Seguridad
         }
 
         [HttpGet()]
-        public async Task<IActionResult> Crear(string codigoUsuario, string password, string hostName, Guid aplicationID)
+        public async Task<IActionResult> CrearSesion(Guid codigoUsuario, string hostName, Guid aplicationID)
         {
-            if (string.IsNullOrEmpty(codigoUsuario) || string.IsNullOrEmpty(password))
+            if (codigoUsuario == Guid.Empty)
             {
                 return BadRequest();
             }
-            var usuario = await BuscarPorPassworAsync(MetodosEncriptacion.Desencriptar(codigoUsuario), MetodosEncriptacion.Desencriptar(password));
+            var usuario = await BuscarUsuarioAsync(codigoUsuario);
             if (usuario != null)
             {
                 usuario.Token = UtilidadesToken.GenerateToken(usuario, hostName, aplicationID);

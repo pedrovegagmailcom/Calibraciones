@@ -21,18 +21,13 @@ namespace ApiWebNetCore.Repositorio
             _mapper = mapper;
         }
 
-        public async Task<UsuarioSesionDTO> BuscarAsync(string codigoUsuario, string password)
+        public async Task<UsuarioSesionDTO> BuscarAsync(Guid codigoUsuario)
         {
-            var resultadoBBDD = await _contexto.Usuarios.FirstOrDefaultAsync(u => u.CodigoUsuario == codigoUsuario);
+            var resultadoBBDD = await _contexto.Usuarios.FirstOrDefaultAsync(u => u.UsuarioId == codigoUsuario);
             return _mapper.Map<UsuarioSesionDTO>(resultadoBBDD);
         }
 
-        private Usuario BuscarUsuarioPorPk(Guid pkUsuario)
-        {
-
-            return _contexto.Usuarios.Single(u => u.UsuarioId == pkUsuario);
-
-        }
+        
     }
 
 }
