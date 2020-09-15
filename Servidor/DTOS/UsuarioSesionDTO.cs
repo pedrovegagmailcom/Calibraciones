@@ -7,7 +7,7 @@ namespace ApiWebNetCore.DTOS
 {
     public class UsuarioSesionDTO
     {
-        public Guid PkUsuario { get; set; }
+        public Guid UsuarioId { get; set; }
         public string CodigoUsuario { get; set; }
         public string Password { get; set; }
         public string Nombre { get; set; }

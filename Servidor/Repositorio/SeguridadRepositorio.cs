@@ -30,7 +30,7 @@ namespace ApiWebNetCore.Repositorio
         private Usuario BuscarUsuarioPorPk(Guid pkUsuario)
         {
 
-            return _contexto.Usuarios.Single(u => u.PkUsuario == pkUsuario);
+            return _contexto.Usuarios.Single(u => u.UsuarioId == pkUsuario);
 
         }
     }

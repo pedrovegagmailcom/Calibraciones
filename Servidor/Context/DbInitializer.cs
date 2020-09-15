@@ -22,8 +22,7 @@ namespace ApiWebNetCore.Context
                 throw ex;
             }
 
-
-            // Look for any students.
+                        
             if (context.Clientes.Any())
             {
                 return;   // DB has been seeded
