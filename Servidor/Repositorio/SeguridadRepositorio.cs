@@ -4,7 +4,6 @@ using ApiWebNetCore.Modelo;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,9 +15,10 @@ namespace ApiWebNetCore.Repositorio
         private MainContext _contexto;
         private readonly IMapper _mapper;
 
-        public SeguridadRepositorio(MainContext contexto)
+        public SeguridadRepositorio(MainContext contexto, IMapper mapper)
         {
             _contexto = contexto;
+            _mapper = mapper;
         }
 
         public async Task<UsuarioSesionDTO> BuscarAsync(string codigoUsuario, string password)
