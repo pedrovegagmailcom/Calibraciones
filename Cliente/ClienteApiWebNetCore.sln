@@ -14,6 +14,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{347E2097-B84E-43C9-B9AD-73A146F4C2AA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClienteApiWebNetCore.Services", "Services\ClienteApiWebNetCore.Services\ClienteApiWebNetCore.Services.csproj", "{74773F57-627F-4AE4-BB58-466AE804F651}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EF7C3F0E-2955-419D-BBE7-B1BFC87FCC83} = {EF7C3F0E-2955-419D-BBE7-B1BFC87FCC83}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClienteApiWebNetCore.Services.Interfaces", "Services\ClienteApiWebNetCore.Services.Interfaces\ClienteApiWebNetCore.Services.Interfaces.csproj", "{38AAC9F6-8858-4B03-8CDE-B32D163BC877}"
 EndProject
