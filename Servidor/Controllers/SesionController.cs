@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Authorization;
 using ApiWebNetCore.Modelo;
 using ApiWebNetCore.Repositorio;
 using AutoMapper;
+using GL2017.API.Utilidades;
+using ApiWebNetCore.Seguridad;
+using ApiWebNetCore.DTOS;
 
 namespace GL2017.API.Controladores.Seguridad
 {
@@ -24,10 +27,10 @@ namespace GL2017.API.Controladores.Seguridad
         public async Task<UsuarioSesionDTO> BuscarPorPassworAsync(string codigoUsuario, string password)
         {
             
-            var usuario = await _seguridadRepositorio.BuscarPorPassworAsync(codigoUsuario, password);
+            var usuario = await _seguridadRepositorio.BuscarAsync(codigoUsuario, password);
             if (usuario != null)
             {
-                var usuarioSesion = _mapper.Map<UsuarioDTO, UsuarioSesionDTO>(usuario);
+                var usuarioSesion = _mapper.Map<UsuarioSesionDTO, UsuarioSesionDTO>(usuario);
                 return usuarioSesion;
                 
             }
@@ -51,30 +54,7 @@ namespace GL2017.API.Controladores.Seguridad
         }
 
         
-        [Authorize]
-        [HttpPost()]
-        public async Task<IActionResult> ModificarPassword(string codigoUsuario, string nuevoPassword, string passwordActual)
-        {
-            if (string.IsNullOrEmpty(codigoUsuario) ||
-                string.IsNullOrEmpty(nuevoPassword) ||
-                string.IsNullOrEmpty(passwordActual))
-            {
-                return BadRequest();
-            }
-            var usuario = await _usuariosBLL.BuscarPorPassworAsync(MetodosEncriptacion.Desencriptar(codigoUsuario), MetodosEncriptacion.Desencriptar(passwordActual));
-            if (usuario != null)
-            {
-                if (await _usuariosBLL.ModificarPasswordAsync(usuario.PkUsuario, MetodosEncriptacion.Desencriptar(nuevoPassword)))
-                {
-                    return Ok();
-                }
-                else
-                {
-                    return StatusCode(409);
-                }
-            }
-            return Unauthorized();
-        }
+       
 
     }
 }

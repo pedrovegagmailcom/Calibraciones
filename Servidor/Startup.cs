@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ApiWebNetCore.Context;
 using ApiWebNetCore.Repositorio;
 using ApiWebNetCore.Seguridad;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -36,6 +37,9 @@ namespace ApiWebNetCore
             services.AddDbContext<MainContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<ISeguridadRepositorio, SeguridadRepositorio>();
             ConfigurarAuthenticacion(services);
+            services.AddAutoMapper(typeof(Startup),
+                                   typeof(MappingProfile));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

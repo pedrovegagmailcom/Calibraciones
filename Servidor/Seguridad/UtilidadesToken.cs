@@ -2,6 +2,7 @@
 
 namespace ApiWebNetCore.Seguridad
 {
+    using ApiWebNetCore.DTOS;
     using ApiWebNetCore.Modelo;
     using Microsoft.AspNetCore.Http;
     using Microsoft.IdentityModel.Tokens;

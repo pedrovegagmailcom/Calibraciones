@@ -1,4 +1,5 @@
 ﻿using ApiWebNetCore.Context;
+using ApiWebNetCore.DTOS;
 using ApiWebNetCore.Modelo;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
@@ -20,9 +21,9 @@ namespace ApiWebNetCore.Repositorio
             _contexto = contexto;
         }
 
-        public async Task<UsuarioSesionDTO> BuscarPorPassworAsync(string codigoUsuario, string password)
+        public async Task<UsuarioSesionDTO> BuscarAsync(string codigoUsuario, string password)
         {
-            var resultadoBBDD = await _contexto.Usuarios.FirstOrDefaultAsync(u => u.CodigoUsuario == codigoUsuario && u.Password == Password.HashPassword(password + u.PkUsuario));
+            var resultadoBBDD = await _contexto.Usuarios.FirstOrDefaultAsync(u => u.CodigoUsuario == codigoUsuario);
             return _mapper.Map<UsuarioSesionDTO>(resultadoBBDD);
         }
 

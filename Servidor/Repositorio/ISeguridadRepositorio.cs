@@ -1,13 +1,10 @@
-﻿using ApiWebNetCore.Modelo;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using ApiWebNetCore.DTOS;
 using System.Threading.Tasks;
 
 namespace ApiWebNetCore.Repositorio
 {
     public interface ISeguridadRepositorio
     {
-        Task<UsuarioSesionDTO> BuscarPorPassworAsync(string codigoUsuario, string password);
+        Task<UsuarioSesionDTO> BuscarAsync(string codigoUsuario, string password);
     }
 }
