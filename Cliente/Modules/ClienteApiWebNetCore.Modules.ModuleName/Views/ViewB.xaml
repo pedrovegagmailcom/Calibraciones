@@ -6,8 +6,8 @@
              prism:ViewModelLocator.AutoWireViewModel="True" 
              Width="800" Height="300">
     <Grid>
-        
 
-        <TextBlock  Text="ViewB" FontSize="30" HorizontalAlignment="Center"></TextBlock>
+
+        <TextBlock Grid.Row="0" Text="{Binding Message}" FontSize="30" HorizontalAlignment="Center"></TextBlock>
     </Grid>
 </UserControl>
