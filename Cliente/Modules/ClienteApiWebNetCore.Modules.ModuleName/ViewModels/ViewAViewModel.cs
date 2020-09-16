@@ -1,4 +1,6 @@
-﻿using ClienteApiWebNetCore.Core.Mvvm;
+﻿using ClienteApiWebNetCore.Core;
+using ClienteApiWebNetCore.Core.Mvvm;
+using ClienteApiWebNetCore.Modules.ModuleName.Views;
 using ClienteApiWebNetCore.Services.Interfaces;
 using ClienteApiWebNetCore.Services.Interfaces.DTOS;
 using Prism.Commands;
@@ -14,6 +16,7 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
         private string _message;
         private IServicioUsuarios _servicioUsuarios;
         private IServicioSesion _servicioSesion;
+        private IRegionManager _regionManager;
 
         private List<UsuarioSesionDTO> _listaUsuarios = new List<UsuarioSesionDTO>();
 
@@ -45,6 +48,7 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
 
             _servicioUsuarios = servicioUsuarios;
             _servicioSesion = servicioSesion;
+            _regionManager = regionManager;
             LoginCommand = new DelegateCommand(EjecutarLogin);
         }
 
@@ -55,6 +59,7 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
             if (resultadoInicioSesion)
             {
                 Message = "Inicio de sesión correcto : " + _servicioSesion.UsuarioSesion.Nombre;
+                _regionManager.RequestNavigate(RegionNames.ContentRegion, "ViewB");
             }
             else
             {
