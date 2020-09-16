@@ -4,27 +4,30 @@
              xmlns:local="clr-namespace:ClienteApiWebNetCore.Modules.ModuleName.Views"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True" Loaded="UserControl_Loaded" 
-             Width="600" Height="300">
+             Width="800" Height="300">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="5*"></RowDefinition>
-            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <ComboBox  VerticalAlignment="Center"   
-                  Margin="183,39,0,0"   
+        
+        <ComboBox Grid.Row="1" VerticalAlignment="Top"
+                  HorizontalAlignment="Center"
                   Width="120"   
                   IsSynchronizedWithCurrentItem="True"
                   ItemsSource="{Binding ListaUsuarios,  Mode=OneWay}"    
                   SelectedItem="{Binding UsuarioSeleccionado}"  
                   DisplayMemberPath="CodigoUsuario"/>
 
-            <Button x:Name="btnLogin" Width="100" Height="25" VerticalAlignment="Center"
+            
+        
+        <Button Grid.Row="2" x:Name="btnLogin" Width="200" Height="25" VerticalAlignment="Top"
+                    HorizontalAlignment="Center"
                     Command="{Binding LoginCommand}" 
                     Content="Login" 
                     IsDefault="True">
         </Button>
-        </StackPanel>
 
         <TextBlock Grid.Row="0" Text="{Binding Message}" FontSize="30" HorizontalAlignment="Center"></TextBlock>
     </Grid>

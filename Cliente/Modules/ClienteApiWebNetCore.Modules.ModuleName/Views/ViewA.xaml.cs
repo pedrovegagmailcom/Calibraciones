@@ -31,11 +31,13 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.Views
         public ViewA()
         {
             InitializeComponent();
+            
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             ((ViewAViewModel)DataContext).IniciarDatosControl();
+            
         }
     }
 }
