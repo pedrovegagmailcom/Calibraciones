@@ -1,7 +1,9 @@
 ﻿using ClienteApiWebNetCore.Core.Mvvm;
 using ClienteApiWebNetCore.Services.Interfaces;
 using ClienteApiWebNetCore.Services.Interfaces.DTOS;
+using Prism.Commands;
 using Prism.Regions;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -11,6 +13,7 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
     {
         private string _message;
         private IServicioUsuarios _servicioUsuarios;
+        private IServicioSesion _servicioSesion;
 
         private List<UsuarioSesionDTO> _listaUsuarios = new List<UsuarioSesionDTO>();
 
@@ -32,11 +35,31 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
             set { SetProperty(ref _message, value); }
         }
 
-        public ViewAViewModel(IRegionManager regionManager, IServicioUsuarios servicioUsuarios) :
+
+        public DelegateCommand LoginCommand { get; private set; }
+
+
+        public ViewAViewModel(IRegionManager regionManager, IServicioUsuarios servicioUsuarios, IServicioSesion servicioSesion) :
             base(regionManager)
         {
 
             _servicioUsuarios = servicioUsuarios;
+            _servicioSesion = servicioSesion;
+            LoginCommand = new DelegateCommand(EjecutarLogin);
+        }
+
+        private async void EjecutarLogin()
+        {
+            var resultadoInicioSesion = await _servicioSesion.IniciarSesion(UsuarioSeleccionado.CodigoUsuario);
+
+            if (resultadoInicioSesion)
+            {
+                Message = "Inicio de sesión correcto : " + _servicioSesion.UsuarioSesion.Nombre;
+            }
+            else
+            {
+                Message = "Inicio de sesión incorrecto";
+            }
         }
 
         public override void OnNavigatedTo(NavigationContext navigationContext)

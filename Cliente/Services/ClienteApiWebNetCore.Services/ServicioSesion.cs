@@ -93,7 +93,7 @@ namespace ClienteApiWebNetCore.Services
 
             try
             {
-                var response = await _clientHttpToken.GetAsync(ConseguirUriConParametros("/api/sesion", listaParametros));
+                var response = await _clientHttpToken.GetAsync(ConseguirUriConParametros("/api/sesion/login", listaParametros));
 
                 if (response.IsSuccessStatusCode)
                 {

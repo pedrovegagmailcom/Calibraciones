@@ -53,8 +53,8 @@ namespace GL2017.API.Controladores.Seguridad
 
 
 
-       
-        public async Task<IActionResult> CrearSesionstring(string codigoUsuario, string hostName, Guid aplicationID)
+        [HttpGet("login")]
+        public async Task<IActionResult> CrearSesionAsync(string codigoUsuario, string hostName, Guid aplicationID)
         {
             if (codigoUsuario == null)
             {
