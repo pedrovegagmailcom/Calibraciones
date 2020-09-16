@@ -67,7 +67,8 @@ namespace ApiWebNetCore.Context
 
             var usuario = new Usuario()
             {
-                Nombre = "PVega"
+                Nombre = "Pedro Vega",
+                CodigoUsuario = "pvega"
 
             };
             context.Add(usuario);

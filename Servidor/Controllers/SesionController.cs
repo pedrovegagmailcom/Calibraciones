@@ -24,7 +24,7 @@ namespace GL2017.API.Controladores.Seguridad
             _mapper = mapper;
         }
 
-        public async Task<UsuarioSesionDTO> BuscarUsuarioAsync(Guid codigoUsuario)
+        public async Task<UsuarioSesionDTO> BuscarUsuarioAsync(string codigoUsuario)
         {
             
             var usuario = await _seguridadRepositorio.BuscarAsync(codigoUsuario);
@@ -38,9 +38,9 @@ namespace GL2017.API.Controladores.Seguridad
         }
 
         [HttpGet()]
-        public async Task<IActionResult> CrearSesion(Guid codigoUsuario, string hostName, Guid aplicationID)
+        public async Task<IActionResult> CrearSesionstring(string codigoUsuario, string hostName, Guid aplicationID)
         {
-            if (codigoUsuario == Guid.Empty)
+            if (codigoUsuario == null)
             {
                 return BadRequest();
             }
