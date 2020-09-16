@@ -15,7 +15,7 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.Tests.ViewModels
         public ViewAViewModelFixture()
         {
             var messageService = new Mock<IServicioClientes>();
-            messageService.Setup(x => x.GetMessage()).Returns(MessageServiceDefaultMessage);
+            //messageService.Setup(x => x.GetMessage()).Returns(MessageServiceDefaultMessage);
             _messageServiceMock = messageService;
 
             _regionManagerMock = new Mock<IRegionManager>();

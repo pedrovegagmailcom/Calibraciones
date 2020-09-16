@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ClienteApiWebNetCore.Core.DTOS
+namespace ClienteApiWebNetCore.Services.Interfaces.DTOS
 {
     public class UsuarioSesionDTO
     {

@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Cliente"
   ],
+  "SelectedNode": "\\Cliente\\ClienteApiWebNetCore.sln",
   "PreviewInSolutionExplorer": false
 }
