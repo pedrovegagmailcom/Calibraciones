@@ -4,6 +4,7 @@ using ApiWebNetCore.Modelo;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -27,7 +28,14 @@ namespace ApiWebNetCore.Repositorio
             return _mapper.Map<UsuarioSesionDTO>(resultadoBBDD);
         }
 
-        
+
+        public async Task<List<UsuarioSesionDTO>> BuscarTodosAsync()
+        {
+            var resultadoBBDD = await _contexto.Usuarios.ToListAsync();
+            return _mapper.Map<List<UsuarioSesionDTO>>(resultadoBBDD);
+        }
+
+
     }
 
 }

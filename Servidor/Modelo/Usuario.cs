@@ -4,10 +4,11 @@ namespace ApiWebNetCore.Modelo
 {
     
     using System;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public class Usuario 
     {
-        
+        [Key]
         public string CodigoUsuario { get; set; }
         public string Password { get; set; }
         public string Nombre { get; set; }

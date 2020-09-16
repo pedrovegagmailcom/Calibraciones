@@ -1,6 +1,8 @@
 ﻿using ClienteApiWebNetCore.Core.Mvvm;
 using ClienteApiWebNetCore.Services.Interfaces;
+using ClienteApiWebNetCore.Services.Interfaces.DTOS;
 using Prism.Regions;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
@@ -8,18 +10,21 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
     public class ViewAViewModel : RegionViewModelBase
     {
         private string _message;
-        private IServicioClientes _messageService;
+        private IServicioUsuarios _servicioUsuarios;
+
+        private List<UsuarioSesionDTO> _listaUsuarios = new List<UsuarioSesionDTO>();
+
         public string Message
         {
             get { return _message; }
             set { SetProperty(ref _message, value); }
         }
 
-        public ViewAViewModel(IRegionManager regionManager, IServicioClientes messageService) :
+        public ViewAViewModel(IRegionManager regionManager, IServicioUsuarios servicioUsuarios) :
             base(regionManager)
         {
 
-            _messageService = messageService;
+            _servicioUsuarios = servicioUsuarios;
         }
 
         public override void OnNavigatedTo(NavigationContext navigationContext)
@@ -29,7 +34,7 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
 
         public async void IniciarDatosControl()
         {
-            Message = await _messageService.GetMessage();
+            _listaUsuarios = await _servicioUsuarios.BuscarUsuariosAsync();
         }
     }
 }

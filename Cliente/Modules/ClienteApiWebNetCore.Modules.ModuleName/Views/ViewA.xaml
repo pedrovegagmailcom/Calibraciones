@@ -5,6 +5,10 @@
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True" Loaded="UserControl_Loaded" >
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+        </Grid.RowDefinitions>
         <TextBlock Text="{Binding Message}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"

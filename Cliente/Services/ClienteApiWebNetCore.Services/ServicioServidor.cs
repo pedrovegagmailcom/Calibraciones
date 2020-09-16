@@ -28,7 +28,22 @@ namespace ClienteApiWebNetCore.Core
 
         }
 
-        public async Task<string> GetAsyncInterno(string uri)
+        public async Task<TDto> GetAsync<TDto>(string uri)
+        {
+            try
+            {
+                return await GetAsyncInterno<TDto>(uri);
+            }
+            catch (ExcepticionNoAutorizado ex)
+            {
+            
+
+                throw ex;
+            }
+
+        }
+
+        public async Task<string> GetAsync(string uri)
         {
             int intentos_conexion = 0;
             HttpResponseMessage response = null;
@@ -55,6 +70,43 @@ namespace ClienteApiWebNetCore.Core
                 var resultado = await response.Content.ReadAsStringAsync();
                 return resultado;
                 //return JsonConvert.DeserializeObject<TDto>(resultado);
+            }
+            else
+            {
+                if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    throw new ExcepticionNoAutorizado();
+                }
+                throw new Exception(response.StatusCode.ToString());
+            }
+        }
+
+        internal async Task<TDto> GetAsyncInterno<TDto>(string uri)
+        {
+            int intentos_conexion = 0;
+            HttpResponseMessage response = null;
+            do
+            {
+                try
+                {
+                    response = await _client.GetAsync(uri);
+                }
+                catch (Exception ex)
+                {
+                    intentos_conexion++;
+                }
+
+                if (intentos_conexion >= NumeroIntentosConexion)
+                {
+                    // generar evento
+                    //_servicioSesion.LanzarFalloComunicacionServidor();
+                }
+            } while (response == null);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var resultado = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<TDto>(resultado);
             }
             else
             {
