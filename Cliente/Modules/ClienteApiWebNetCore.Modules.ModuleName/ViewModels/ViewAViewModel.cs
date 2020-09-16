@@ -14,6 +14,18 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
 
         private List<UsuarioSesionDTO> _listaUsuarios = new List<UsuarioSesionDTO>();
 
+        public List<UsuarioSesionDTO> ListaUsuarios
+        {
+            get { return _listaUsuarios; }
+            set { SetProperty(ref _listaUsuarios, value); }
+        }
+
+        private UsuarioSesionDTO _usuarioSeleccionado;
+        public UsuarioSesionDTO UsuarioSeleccionado
+        {
+            get { return _usuarioSeleccionado; }
+            set { SetProperty(ref _usuarioSeleccionado, value); }
+        }
         public string Message
         {
             get { return _message; }
@@ -34,7 +46,7 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
 
         public async void IniciarDatosControl()
         {
-            _listaUsuarios = await _servicioUsuarios.BuscarUsuariosAsync();
+            ListaUsuarios = await _servicioUsuarios.BuscarUsuariosAsync();
         }
     }
 }

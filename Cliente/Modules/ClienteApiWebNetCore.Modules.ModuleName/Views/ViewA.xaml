@@ -9,9 +9,13 @@
             <RowDefinition Height="5*"></RowDefinition>
             <RowDefinition Height="5*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Text="{Binding Message}"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="24"/>
+        <ComboBox HorizontalAlignment="Left"   
+                  Margin="183,39,0,0"   
+                  VerticalAlignment="Top"   
+                  Width="120"   
+                  IsSynchronizedWithCurrentItem="True"
+                  ItemsSource="{Binding ListaUsuarios,  Mode=OneWay}"    
+                  SelectedItem="{Binding UsuarioSeleccionado}"  
+                  DisplayMemberPath="CodigoUsuario"/>
     </Grid>
 </UserControl>
