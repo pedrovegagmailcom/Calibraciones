@@ -22,8 +22,7 @@ namespace ApiWebNetCore.Context
                 throw ex;
             }
 
-
-            // Look for any students.
+                        
             if (context.Clientes.Any())
             {
                 return;   // DB has been seeded
@@ -68,7 +67,24 @@ namespace ApiWebNetCore.Context
 
             var usuario = new Usuario()
             {
-                Nombre = "PVega"
+                Nombre = "Mikel Barandiaran",
+                CodigoUsuario = "Mikel"
+
+            };
+            context.Add(usuario);
+
+            usuario = new Usuario()
+            {
+                Nombre = "Aitor Mendizabal",
+                CodigoUsuario = "Aitor"
+
+            };
+            context.Add(usuario);
+
+            usuario = new Usuario()
+            {
+                Nombre = "Pedro Ortega",
+                CodigoUsuario = "Pedro"
 
             };
             context.Add(usuario);

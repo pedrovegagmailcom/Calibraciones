@@ -14,7 +14,7 @@ namespace ClienteApiWebNetCore.Services
 
         public async Task<string> GetMessage()
         {
-             var res = await _servicioServidor.GetAsyncInterno("api/clientes");
+             var res = await _servicioServidor.GetAsync("api/clientes");
              return res;
             
         }

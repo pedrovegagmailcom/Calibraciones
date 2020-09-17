@@ -5,11 +5,16 @@ using Microsoft.AspNetCore.Authorization;
 using ApiWebNetCore.Modelo;
 using ApiWebNetCore.Repositorio;
 using AutoMapper;
+using GL2017.API.Utilidades;
+using ApiWebNetCore.Seguridad;
+using ApiWebNetCore.DTOS;
+using System.Collections.Generic;
 
 namespace GL2017.API.Controladores.Seguridad
 {
     [Produces("application/json")]
-    [Route("api/Sesion")]
+    [Route("api/[controller]")]
+    [ApiController]
     public class SesionController : Controller
     {
         ISeguridadRepositorio _seguridadRepositorio;
@@ -21,27 +26,41 @@ namespace GL2017.API.Controladores.Seguridad
             _mapper = mapper;
         }
 
-        public async Task<UsuarioSesionDTO> BuscarPorPassworAsync(string codigoUsuario, string password)
+        public async Task<UsuarioSesionDTO> BuscarUsuarioAsync(string codigoUsuario)
         {
             
-            var usuario = await _seguridadRepositorio.BuscarPorPassworAsync(codigoUsuario, password);
-            if (usuario != null)
+            var usuarioSesionDTO = await _seguridadRepositorio.BuscarAsync(codigoUsuario);
+            if (usuarioSesionDTO != null)
             {
-                var usuarioSesion = _mapper.Map<UsuarioDTO, UsuarioSesionDTO>(usuario);
-                return usuarioSesion;
-                
+                return usuarioSesionDTO;
             }
             return null;
         }
 
-        [HttpGet()]
-        public async Task<IActionResult> Crear(string codigoUsuario, string password, string hostName, Guid aplicationID)
+        [HttpGet]
+        public async Task<List<UsuarioSesionDTO>> BuscarUsuariosAsync()
         {
-            if (string.IsNullOrEmpty(codigoUsuario) || string.IsNullOrEmpty(password))
+
+            var usuariosDTO = await _seguridadRepositorio.BuscarTodosAsync();
+            if (usuariosDTO != null)
+            {
+                
+                return usuariosDTO;
+
+            }
+            return null;
+        }
+
+
+
+        [HttpGet("login")]
+        public async Task<IActionResult> CrearSesionAsync(string codigoUsuario, string hostName, Guid aplicationID)
+        {
+            if (codigoUsuario == null)
             {
                 return BadRequest();
             }
-            var usuario = await BuscarPorPassworAsync(MetodosEncriptacion.Desencriptar(codigoUsuario), MetodosEncriptacion.Desencriptar(password));
+            var usuario = await BuscarUsuarioAsync(codigoUsuario);
             if (usuario != null)
             {
                 usuario.Token = UtilidadesToken.GenerateToken(usuario, hostName, aplicationID);
@@ -51,30 +70,7 @@ namespace GL2017.API.Controladores.Seguridad
         }
 
         
-        [Authorize]
-        [HttpPost()]
-        public async Task<IActionResult> ModificarPassword(string codigoUsuario, string nuevoPassword, string passwordActual)
-        {
-            if (string.IsNullOrEmpty(codigoUsuario) ||
-                string.IsNullOrEmpty(nuevoPassword) ||
-                string.IsNullOrEmpty(passwordActual))
-            {
-                return BadRequest();
-            }
-            var usuario = await _usuariosBLL.BuscarPorPassworAsync(MetodosEncriptacion.Desencriptar(codigoUsuario), MetodosEncriptacion.Desencriptar(passwordActual));
-            if (usuario != null)
-            {
-                if (await _usuariosBLL.ModificarPasswordAsync(usuario.PkUsuario, MetodosEncriptacion.Desencriptar(nuevoPassword)))
-                {
-                    return Ok();
-                }
-                else
-                {
-                    return StatusCode(409);
-                }
-            }
-            return Unauthorized();
-        }
+       
 
     }
 }

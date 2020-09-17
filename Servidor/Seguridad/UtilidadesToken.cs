@@ -2,6 +2,7 @@
 
 namespace ApiWebNetCore.Seguridad
 {
+    using ApiWebNetCore.DTOS;
     using ApiWebNetCore.Modelo;
     using Microsoft.AspNetCore.Http;
     using Microsoft.IdentityModel.Tokens;
@@ -27,7 +28,7 @@ namespace ApiWebNetCore.Seguridad
             var claims = new Claim[]
             {
                 new Claim(ClaimTypes.Name, usuario.CodigoUsuario),
-                new Claim(nameof(TokenClaimNames.PkUsuario),usuario.PkUsuario.ToString()),
+                new Claim(nameof(TokenClaimNames.PkUsuario),usuario.CodigoUsuario),
                 new Claim(nameof(TokenClaimNames.HostName),hostName),
                 new Claim(nameof(TokenClaimNames.AplicationID),aplicactionID.ToString()),
                 new Claim(JwtRegisteredClaimNames.Nbf, new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds().ToString()),

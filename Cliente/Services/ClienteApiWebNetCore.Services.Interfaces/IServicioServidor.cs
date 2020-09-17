@@ -7,6 +7,7 @@ namespace ClienteApiWebNetCore.Core
 {
     public interface IServicioServidor
     {
-        Task<string> GetAsyncInterno(string uri);
+        Task<string> GetAsync(string uri);
+        Task<TDto> GetAsync<TDto>(string uri);
     }
 }

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace ApiWebNetCore.Modelo
+namespace ClienteApiWebNetCore.Services.Interfaces.DTOS
 {
     public class UsuarioSesionDTO
     {
-        public Guid PkUsuario { get; set; }
+
         public string CodigoUsuario { get; set; }
         public string Nombre { get; set; }
         public string Apellido1 { get; set; }

@@ -21,9 +21,11 @@ namespace ClienteApiWebNetCore
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterSingleton<IServicioSesion, ServicioSesion>();
             containerRegistry.Register<IServicioServidor, ServicioServidor>();
             containerRegistry.RegisterSingleton<IServicioClientes, ServicioClientes>();
-            
+            containerRegistry.RegisterSingleton<IServicioUsuarios, ServicioUsuarios>();
+
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
