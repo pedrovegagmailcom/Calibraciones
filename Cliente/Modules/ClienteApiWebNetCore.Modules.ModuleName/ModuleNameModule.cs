@@ -3,6 +3,8 @@ using ClienteApiWebNetCore.Modules.ModuleName.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace ClienteApiWebNetCore.Modules.ModuleName
 {
@@ -17,12 +19,21 @@ namespace ClienteApiWebNetCore.Modules.ModuleName
 
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            _regionManager.RequestNavigate(RegionNames.ContentRegion, "ViewA");
+            var login = containerProvider.Resolve<LoginView>() as UserControl;
+            Window window = new Window
+            {
+                Title = "Login",
+                Content = login,
+                SizeToContent = SizeToContent.WidthAndHeight
+            };
+            window.ShowDialog();
+
+            //_regionManager.RequestNavigate(RegionNames.ContentRegion, "LoginView");
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<ViewA>();
+            containerRegistry.RegisterForNavigation<LoginView>();
             containerRegistry.RegisterForNavigation<ViewB>();
         }
     }

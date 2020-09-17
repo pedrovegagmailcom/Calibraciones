@@ -19,16 +19,17 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.Views
     /// <summary>
     /// Interaction logic for ViewA.xaml
     /// </summary>
-    public partial class ViewA : UserControl
+    public partial class LoginView
+        : UserControl
     {
-        ViewAViewModel ViewModel
+        LoginViewModel ViewModel
         {
             get
             {
-                return (ViewAViewModel)DataContext;
+                return (LoginViewModel)DataContext;
             }
         }
-        public ViewA()
+        public LoginView()
         {
             InitializeComponent();
             
@@ -36,7 +37,7 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.Views
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            ((ViewAViewModel)DataContext).IniciarDatosControl();
+            ((LoginViewModel)DataContext).IniciarDatosControl();
             
         }
     }

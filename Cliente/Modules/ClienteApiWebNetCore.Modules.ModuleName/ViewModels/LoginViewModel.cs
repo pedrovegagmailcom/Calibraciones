@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
 {
-    public class ViewAViewModel : RegionViewModelBase
+    public class LoginViewModel : RegionViewModelBase
     {
         private string _message;
         private IServicioUsuarios _servicioUsuarios;
@@ -42,7 +42,7 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
         public DelegateCommand LoginCommand { get; private set; }
 
 
-        public ViewAViewModel(IRegionManager regionManager, IServicioUsuarios servicioUsuarios, IServicioSesion servicioSesion) :
+        public LoginViewModel(IRegionManager regionManager, IServicioUsuarios servicioUsuarios, IServicioSesion servicioSesion) :
             base(regionManager)
         {
 
@@ -75,6 +75,7 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
         public async void IniciarDatosControl()
         {
             ListaUsuarios = await _servicioUsuarios.BuscarUsuariosAsync();
+            ListaUsuarios.Add(new UsuarioSesionDTO { CodigoUsuario = "NoUser" });
         }
     }
 }
