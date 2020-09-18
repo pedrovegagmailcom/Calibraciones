@@ -1,8 +1,5 @@
-﻿using ClienteApiWebNetCore.Services.Interfaces.DTOS;
+﻿using ClienteApiWebNetCore.Dtos.Seguridad;
 using System;
-using System.Collections.Generic;
-using System.Security;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ClienteApiWebNetCore.Services.Interfaces

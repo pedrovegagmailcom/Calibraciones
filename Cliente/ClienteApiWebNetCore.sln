@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{56DE45F5-FB84-4240-A112-C9934D455666}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClienteApiWebNetCore.Modules.ModuleName.Tests", "Tests\ClienteApiWebNetCore.Modules.ModuleName.Tests\ClienteApiWebNetCore.Modules.ModuleName.Tests.csproj", "{3DC9E301-AABC-4056-BEFD-4367850057EA}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{74C43AD0-5869-4B38-9982-A39CC7F39E62}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClienteApiWebNetCore.Modules.ModuleName", "Modules\ClienteApiWebNetCore.Modules.ModuleName\ClienteApiWebNetCore.Modules.ModuleName.csproj", "{DA54030A-FE83-4C07-B963-192430FC69F6}"
@@ -24,16 +20,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClienteApiWebNetCore", "Cli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClienteApiWebNetCore.Core", "ClienteApiWebNetCore.Core\ClienteApiWebNetCore.Core.csproj", "{EF7C3F0E-2955-419D-BBE7-B1BFC87FCC83}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClienteApiWebNetCore.Dtos", "ClienteApiWebNetCore.Dtos\ClienteApiWebNetCore.Dtos.csproj", "{6EBFD68D-CF9C-416F-A983-8983A62370B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3DC9E301-AABC-4056-BEFD-4367850057EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3DC9E301-AABC-4056-BEFD-4367850057EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3DC9E301-AABC-4056-BEFD-4367850057EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3DC9E301-AABC-4056-BEFD-4367850057EA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DA54030A-FE83-4C07-B963-192430FC69F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DA54030A-FE83-4C07-B963-192430FC69F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA54030A-FE83-4C07-B963-192430FC69F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -54,12 +48,15 @@ Global
 		{EF7C3F0E-2955-419D-BBE7-B1BFC87FCC83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF7C3F0E-2955-419D-BBE7-B1BFC87FCC83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF7C3F0E-2955-419D-BBE7-B1BFC87FCC83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EBFD68D-CF9C-416F-A983-8983A62370B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EBFD68D-CF9C-416F-A983-8983A62370B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EBFD68D-CF9C-416F-A983-8983A62370B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EBFD68D-CF9C-416F-A983-8983A62370B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{3DC9E301-AABC-4056-BEFD-4367850057EA} = {56DE45F5-FB84-4240-A112-C9934D455666}
 		{DA54030A-FE83-4C07-B963-192430FC69F6} = {74C43AD0-5869-4B38-9982-A39CC7F39E62}
 		{74773F57-627F-4AE4-BB58-466AE804F651} = {347E2097-B84E-43C9-B9AD-73A146F4C2AA}
 		{38AAC9F6-8858-4B03-8CDE-B32D163BC877} = {347E2097-B84E-43C9-B9AD-73A146F4C2AA}
