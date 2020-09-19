@@ -29,12 +29,14 @@ namespace ClienteApiWebNetCore.Modules.ModuleName
             window.ShowDialog();
 
             //_regionManager.RequestNavigate(RegionNames.ContentRegion, "LoginView");
+            _regionManager.RequestNavigate(RegionNames.StatusRegion, "EstadoView");
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<LoginView>();
             containerRegistry.RegisterForNavigation<ViewB>();
+            containerRegistry.RegisterForNavigation<EstadoView>();
         }
     }
 }
