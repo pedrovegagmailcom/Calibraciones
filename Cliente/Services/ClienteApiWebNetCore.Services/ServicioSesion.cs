@@ -79,6 +79,14 @@ namespace ClienteApiWebNetCore.Services
             while (true)
             {
                 var result = await ConexionServidorOk();
+                if (result == false)
+                {
+                    LanzarFalloComunicacionServidor();
+                }
+                else
+                {
+                    ComunicacionServidorRecuperada?.Invoke();
+                }
                 Debug.WriteLine(result);
                 Thread.Sleep(1000);
             }
