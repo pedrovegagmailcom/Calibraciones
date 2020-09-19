@@ -27,25 +27,11 @@ namespace ClienteApiWebNetCore.Services
         public Guid AplicationID { get; private set; }
 
         public event FalloComunicacionServidorHandler FalloComunicacionServidor;
-        public void LanzarFalloComunicacionServidor()
-        {
-            FalloComunicacionServidor?.Invoke();
-        }
-
         public event AutenticacionCorrectaHandler AutenticadoCorrectamente;
-        protected virtual void LazarAutenticadoCorrectamente()
-        {
-            AutenticadoCorrectamente?.Invoke(UsuarioSesion);
-        }
-
         public event AutenticacionFallidaHandler AutenticadoFallido;
         public event ComunicacionServidorRecuperadaHandler ComunicacionServidorRecuperada;
 
-        protected virtual void LanzarAutenticacionFallida()
-        {
-            AutenticadoFallido?.Invoke();
-        }
-
+        
         public bool SesionIniciada
         {
             get
@@ -81,7 +67,7 @@ namespace ClienteApiWebNetCore.Services
                 var result = await ConexionServidorOk();
                 if (result == false)
                 {
-                    LanzarFalloComunicacionServidor();
+                    AutenticadoFallido?.Invoke();
                 }
                 else
                 {
@@ -123,12 +109,12 @@ namespace ClienteApiWebNetCore.Services
                     var resultado = await response.Content.ReadAsStringAsync();
                     UsuarioSesion = JsonConvert.DeserializeObject<UsuarioSesionDTO>(resultado);
                     AgregarTokenClientePermisos();
-                    LazarAutenticadoCorrectamente();
+                    AutenticadoCorrectamente?.Invoke(UsuarioSesion);
                     return true;
                 }
                 else
                 {
-                    LanzarAutenticacionFallida();
+                    AutenticadoFallido?.Invoke();
                 }
             }
             catch (Exception ex)
@@ -185,7 +171,7 @@ namespace ClienteApiWebNetCore.Services
         {
             try
             {
-                await GetAsyncInterno<string>("api/sesion/estado/");
+                await GetAsyncInterno<bool>("api/sesion/estado/");
                 return true;
             }
             catch (Exception)

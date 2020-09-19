@@ -23,7 +23,6 @@ namespace ClienteApiWebNetCore.Services.Interfaces
 
         Task<bool> IniciarSesion(string codigoUsuario);
         Task<bool> RealizarAutenticacion();
-        void LanzarFalloComunicacionServidor();
         Guid AplicationID { get; }
         Task<bool> ConexionServidorOk();
 
