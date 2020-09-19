@@ -6,6 +6,7 @@ namespace ClienteApiWebNetCore.Services.Interfaces
 {
     public delegate void AutenticacionFallidaHandler();
     public delegate void FalloComunicacionServidorHandler();
+    public delegate void ComunicacionServidorRecuperadaHandler();
     public delegate void AutenticacionCorrectaHandler(UsuarioSesionDTO usuarioAutenticado);
 
     public interface IServicioSesion
@@ -16,6 +17,9 @@ namespace ClienteApiWebNetCore.Services.Interfaces
         event AutenticacionCorrectaHandler AutenticadoCorrectamente;
         event AutenticacionFallidaHandler AutenticadoFallido;
         event FalloComunicacionServidorHandler FalloComunicacionServidor;
+        event ComunicacionServidorRecuperadaHandler ComunicacionServidorRecuperada;
+
+
 
         Task<bool> IniciarSesion(string codigoUsuario);
         Task<bool> RealizarAutenticacion();

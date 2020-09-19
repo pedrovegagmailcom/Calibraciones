@@ -4,12 +4,14 @@ using ClienteApiWebNetCore.Services.Interfaces;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ClienteApiWebNetCore.Services
@@ -37,7 +39,7 @@ namespace ClienteApiWebNetCore.Services
         }
 
         public event AutenticacionFallidaHandler AutenticadoFallido;
-
+        public event ComunicacionServidorRecuperadaHandler ComunicacionServidorRecuperada;
 
         protected virtual void LanzarAutenticacionFallida()
         {
@@ -67,6 +69,19 @@ namespace ClienteApiWebNetCore.Services
 
             UsuarioSesion = new UsuarioSesionDTO();
 
+            Task.Run(() => WatchDogServer());
+
+        }
+
+
+        public async Task<bool> WatchDogServer()
+        {
+            while (true)
+            {
+                var result = await ConexionServidorOk();
+                Debug.WriteLine(result);
+                Thread.Sleep(1000);
+            }
         }
 
         public async Task<bool> RealizarAutenticacion()
@@ -162,7 +177,7 @@ namespace ClienteApiWebNetCore.Services
         {
             try
             {
-                await GetAsyncInterno<string>("api/VerificarEstado/");
+                await GetAsyncInterno<string>("api/sesion/estado/");
                 return true;
             }
             catch (Exception)
