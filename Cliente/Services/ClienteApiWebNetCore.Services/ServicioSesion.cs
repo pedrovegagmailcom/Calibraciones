@@ -67,7 +67,7 @@ namespace ClienteApiWebNetCore.Services
                 var result = await ConexionServidorOk();
                 if (result == false)
                 {
-                    AutenticadoFallido?.Invoke();
+                    FalloComunicacionServidor?.Invoke();
                 }
                 else
                 {
