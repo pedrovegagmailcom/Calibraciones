@@ -1,14 +1,12 @@
-﻿using ClienteApiWebNetCore.Services.Interfaces.DTOS;
+﻿using ClienteApiWebNetCore.Dtos.Seguridad;
 using System;
-using System.Collections.Generic;
-using System.Security;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ClienteApiWebNetCore.Services.Interfaces
 {
     public delegate void AutenticacionFallidaHandler();
     public delegate void FalloComunicacionServidorHandler();
+    public delegate void ComunicacionServidorRecuperadaHandler();
     public delegate void AutenticacionCorrectaHandler(UsuarioSesionDTO usuarioAutenticado);
 
     public interface IServicioSesion
@@ -19,10 +17,12 @@ namespace ClienteApiWebNetCore.Services.Interfaces
         event AutenticacionCorrectaHandler AutenticadoCorrectamente;
         event AutenticacionFallidaHandler AutenticadoFallido;
         event FalloComunicacionServidorHandler FalloComunicacionServidor;
+        event ComunicacionServidorRecuperadaHandler ComunicacionServidorRecuperada;
+
+
 
         Task<bool> IniciarSesion(string codigoUsuario);
         Task<bool> RealizarAutenticacion();
-        void LanzarFalloComunicacionServidor();
         Guid AplicationID { get; }
         Task<bool> ConexionServidorOk();
 

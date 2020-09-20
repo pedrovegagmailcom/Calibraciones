@@ -10,5 +10,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\ClienteApiWebNetCore.Core\ClienteApiWebNetCore.Core.csproj" />
     <ProjectReference Include="..\..\Services\ClienteApiWebNetCore.Services.Interfaces\ClienteApiWebNetCore.Services.Interfaces.csproj" />
+    <ProjectReference Include="..\..\Services\ClienteApiWebNetCore.Services\ClienteApiWebNetCore.Services.csproj" />
   </ItemGroup>
 </Project>

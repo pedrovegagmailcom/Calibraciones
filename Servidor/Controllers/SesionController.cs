@@ -69,8 +69,11 @@ namespace GL2017.API.Controladores.Seguridad
             return Unauthorized();
         }
 
-        
-       
+        [HttpGet("estado")]
+        public bool EstadoAsync()
+        {
+           return true;
+        }
 
     }
 }

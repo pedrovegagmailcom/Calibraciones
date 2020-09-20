@@ -1,13 +1,10 @@
 ﻿using ClienteApiWebNetCore.Core;
 using ClienteApiWebNetCore.Core.Mvvm;
-using ClienteApiWebNetCore.Modules.ModuleName.Views;
+using ClienteApiWebNetCore.Dtos.Seguridad;
 using ClienteApiWebNetCore.Services.Interfaces;
-using ClienteApiWebNetCore.Services.Interfaces.DTOS;
 using Prism.Commands;
 using Prism.Regions;
-using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
 {
