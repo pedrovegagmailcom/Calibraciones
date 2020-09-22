@@ -5,10 +5,10 @@
         prism:ViewModelLocator.AutoWireViewModel="True"
         xmlns:core="clr-namespace:ClienteApiWebNetCore.Core;assembly=ClienteApiWebNetCore.Core"
         Title="{Binding Title}" Height="auto" Width="auto" 
-        SizeToContent="WidthAndHeight">
+        SizeToContent="WidthAndHeight" Initialized="Window_Initialized">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
         <ContentControl Grid.Row="0" prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
