@@ -12,9 +12,9 @@ namespace ClienteApiWebNetCore.ViewModels
         private string _message;
         private IServicioUsuarios _servicioUsuarios;
         private IServicioSesion _servicioSesion;
-        private Window _window;
+        private Window _windowLogin;
 
-        private List<UsuarioSesionDTO> _listaUsuarios = new List<UsuarioSesionDTO>();
+        private List<UsuarioSesionDTO> _listaUsuarios;
 
         public List<UsuarioSesionDTO> ListaUsuarios
         {
@@ -51,8 +51,7 @@ namespace ClienteApiWebNetCore.ViewModels
 
             if (resultadoInicioSesion)
             {
-                Message = "Inicio de sesión correcto : " + _servicioSesion.UsuarioSesion.Nombre;
-                _window.Close();
+                _windowLogin.Close();
             }
             else
             {
@@ -62,7 +61,7 @@ namespace ClienteApiWebNetCore.ViewModels
 
         public async void IniciarDatosControl(Window window)
         {
-            _window = window;
+            _windowLogin = window;
             ListaUsuarios = await _servicioUsuarios.BuscarUsuariosAsync();
             ListaUsuarios.Add(new UsuarioSesionDTO { CodigoUsuario = "NoUser" });
         }
