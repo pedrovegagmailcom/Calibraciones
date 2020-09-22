@@ -19,15 +19,6 @@ namespace ClienteApiWebNetCore.Modules.ModuleName
 
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            var login = new LoginView();
-            Window window = new Window
-            {
-                Title = "Login",
-                Content = login,
-                SizeToContent = SizeToContent.WidthAndHeight
-            };
-            window.ShowDialog();
-
             _regionManager.RequestNavigate(RegionNames.ContentRegion, "ViewB");
             _regionManager.RequestNavigate(RegionNames.StatusRegion, "EstadoView");
         }
