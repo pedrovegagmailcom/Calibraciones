@@ -1,19 +1,24 @@
 ﻿using ClienteApiWebNetCore.Core;
 using ClienteApiWebNetCore.Core.Mvvm;
 using ClienteApiWebNetCore.Dtos.Seguridad;
+using ClienteApiWebNetCore.Modules.ModuleName.Views;
 using ClienteApiWebNetCore.Services.Interfaces;
 using Prism.Commands;
+using Prism.Mvvm;
 using Prism.Regions;
 using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
 {
-    public class LoginViewModel : RegionViewModelBase
+    public class LoginViewModel : BindableBase//RegionViewModelBase
     {
         private string _message;
         private IServicioUsuarios _servicioUsuarios;
         private IServicioSesion _servicioSesion;
         private IRegionManager _regionManager;
+        private Window _window;
 
         private List<UsuarioSesionDTO> _listaUsuarios = new List<UsuarioSesionDTO>();
 
@@ -39,13 +44,13 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
         public DelegateCommand LoginCommand { get; private set; }
 
 
-        public LoginViewModel(IRegionManager regionManager, IServicioUsuarios servicioUsuarios, IServicioSesion servicioSesion) :
-            base(regionManager)
+        //public LoginViewModel(IRegionManager regionManager, IServicioUsuarios servicioUsuarios, IServicioSesion servicioSesion) : base(regionManager)
+        public LoginViewModel(IServicioUsuarios servicioUsuarios, IServicioSesion servicioSesion) 
         {
 
             _servicioUsuarios = servicioUsuarios;
             _servicioSesion = servicioSesion;
-            _regionManager = regionManager;
+            //_regionManager = regionManager;
             LoginCommand = new DelegateCommand(EjecutarLogin);
         }
 
@@ -56,7 +61,8 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
             if (resultadoInicioSesion)
             {
                 Message = "Inicio de sesión correcto : " + _servicioSesion.UsuarioSesion.Nombre;
-                _regionManager.RequestNavigate(RegionNames.ContentRegion, "ViewB");
+                //_regionManager.RequestNavigate(RegionNames.ContentRegion, "ViewB");
+                _window.Close();
             }
             else
             {
@@ -64,13 +70,14 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
             }
         }
 
-        public override void OnNavigatedTo(NavigationContext navigationContext)
-        {
-            //do something
-        }
+        //public override void OnNavigatedTo(NavigationContext navigationContext)
+        //{
+        //    //do something
+        //}
 
-        public async void IniciarDatosControl()
+        public async void IniciarDatosControl(Window window)
         {
+            _window = window;
             ListaUsuarios = await _servicioUsuarios.BuscarUsuariosAsync();
             ListaUsuarios.Add(new UsuarioSesionDTO { CodigoUsuario = "NoUser" });
         }

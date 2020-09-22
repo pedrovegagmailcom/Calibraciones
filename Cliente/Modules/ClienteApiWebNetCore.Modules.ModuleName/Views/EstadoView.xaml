@@ -11,10 +11,12 @@
     <Grid Background="SteelBlue">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="8*"></ColumnDefinition>
                 <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="7*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="1" Text="{Binding EstadoServidor}" FontSize="20" HorizontalAlignment="Right" Width="100"></TextBlock>
+            <TextBlock Grid.Column="0" Text="{Binding UsuarioLogeado}" FontSize="20" HorizontalAlignment="Left" Width="150"></TextBlock>
+            <TextBlock Grid.Column="2" Text="{Binding EstadoServidor}" FontSize="20" HorizontalAlignment="Right" Width="100"></TextBlock>
         </Grid>
         
     </Grid>

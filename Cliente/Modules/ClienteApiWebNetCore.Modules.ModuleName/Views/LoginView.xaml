@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:ClienteApiWebNetCore.Modules.ModuleName.Views"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True" Loaded="UserControl_Loaded" 
-             Width="800" Height="300">
+             Width="600" Height="200">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"></RowDefinition>

@@ -19,7 +19,7 @@ namespace ClienteApiWebNetCore.Modules.ModuleName
 
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            var login = containerProvider.Resolve<LoginView>() as UserControl;
+            var login = new LoginView();
             Window window = new Window
             {
                 Title = "Login",
@@ -28,13 +28,12 @@ namespace ClienteApiWebNetCore.Modules.ModuleName
             };
             window.ShowDialog();
 
-            //_regionManager.RequestNavigate(RegionNames.ContentRegion, "LoginView");
+            _regionManager.RequestNavigate(RegionNames.ContentRegion, "ViewB");
             _regionManager.RequestNavigate(RegionNames.StatusRegion, "EstadoView");
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<LoginView>();
             containerRegistry.RegisterForNavigation<ViewB>();
             containerRegistry.RegisterForNavigation<EstadoView>();
         }
