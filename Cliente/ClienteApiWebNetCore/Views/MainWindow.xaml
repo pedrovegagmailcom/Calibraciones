@@ -8,7 +8,7 @@
         SizeToContent="WidthAndHeight" Initialized="Window_Initialized">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
         <ContentControl Grid.Row="0" prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
