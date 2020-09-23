@@ -6,8 +6,12 @@
              prism:ViewModelLocator.AutoWireViewModel="True" 
              Width="1200" Height="800">
     <Grid>
+        <StackPanel Orientation="Horizontal">
+        <DataGrid
+            ItemsSource ="{Binding ListaMedidas}"
+        />
+            <Button Content="ok"  Command="{Binding OkCommand}"></Button>
+        </StackPanel>
 
-
-        <TextBlock Grid.Row="0" Text="{Binding Message}" FontSize="30" HorizontalAlignment="Center"></TextBlock>
     </Grid>
 </UserControl>
