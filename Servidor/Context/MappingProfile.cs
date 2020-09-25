@@ -11,9 +11,9 @@ namespace ApiWebNetCore.Context
         public MappingProfile()
         {
 
-            CreateMap<Usuario, UsuarioSesionDTO>();
+            CreateMap<Usuario, UsuarioSesionDTO>().ReverseMap();
             
-            CreateMap<UsuarioSesionDTO, Usuario>();
+            CreateMap<Certificado, CertificadoDTO>().ReverseMap();
         }
     }
 }
