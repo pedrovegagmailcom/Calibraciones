@@ -34,6 +34,7 @@ namespace ApiWebNetCore
         {
             services.AddControllers();
             services.AddTransient<IClientesRepositorio, ClientesRepositorio>();
+            services.AddTransient<ICertificadosRepositorio, CertificadosRepositorio>();
             services.AddDbContext<MainContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<ISeguridadRepositorio, SeguridadRepositorio>();
             ConfigurarAuthenticacion(services);

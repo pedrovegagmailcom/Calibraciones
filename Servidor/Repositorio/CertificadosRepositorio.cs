@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ApiWebNetCore.Repositorio
 {
-    public class CertificadosRepositorio
+    public class CertificadosRepositorio : ICertificadosRepositorio
     {
         private MainContext _contexto;
         private readonly IMapper _mapper;
