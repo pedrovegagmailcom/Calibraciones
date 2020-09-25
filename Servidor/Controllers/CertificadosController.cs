@@ -9,12 +9,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiWebNetCore.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class CertificadosController : ControllerBase
     {
         private ICertificadosRepositorio _certificadosRepositorio;
-        
+
+        public CertificadosController(ICertificadosRepositorio certificadosRepositorio)
+        {
+            _certificadosRepositorio = certificadosRepositorio;
+        }
 
         [HttpPost]
         public async Task<IActionResult> AgregarCertificado([FromBody] CertificadoDTO certificadoDTO)
