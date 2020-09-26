@@ -19,7 +19,7 @@ namespace ClienteApiWebNetCore.Modules.ModuleName
 
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            _regionManager.RequestNavigate(RegionNames.ContentRegion, "ViewB");
+            _regionManager.RequestNavigate(RegionNames.ContentRegion, "CertificadosView");
             _regionManager.RequestNavigate(RegionNames.StatusRegion, "EstadoView");
             _regionManager.RequestNavigate(RegionNames.MenuSuperior, "MenuSuperiorView");
         }
@@ -29,7 +29,8 @@ namespace ClienteApiWebNetCore.Modules.ModuleName
             containerRegistry.RegisterForNavigation<MenuSuperiorView>();
             containerRegistry.RegisterForNavigation<ViewB>();
             containerRegistry.RegisterForNavigation<EstadoView>();
-            containerRegistry.RegisterForNavigation<SeleccionCertificadoView>();
+            containerRegistry.RegisterForNavigation<CertificadosView>();
+            containerRegistry.RegisterForNavigation<BusquedaCertificadosView>();
         }
     }
 }

@@ -13,10 +13,33 @@
     <ProjectReference Include="..\..\Services\ClienteApiWebNetCore.Services\ClienteApiWebNetCore.Services.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\SeleccionCertificadoView - Copia %282%29 - Copia.xaml.cs">
+      <DependentUpon>CertificadosView.xaml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SeleccionCertificadoView - Copia %282%29.xaml.cs">
+      <DependentUpon>CertificadosView.xaml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SeleccionCertificadoView - Copia - Copia %282%29.xaml.cs">
+      <DependentUpon>CertificadosView.xaml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SeleccionCertificadoView - Copia - Copia - Copia.xaml.cs">
+      <DependentUpon>SeleccionCertificadoView - Copia.xaml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SeleccionCertificadoView - Copia - Copia.xaml.cs">
+      <DependentUpon>SeleccionCertificadoView - Copia.xaml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SeleccionCertificadoView - Copia.xaml.cs">
+      <DependentUpon>CertificadosView.xaml.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\BusquedaCertificadosView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\MenuSuperiorView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\SeleccionCertificadoView.xaml">
+    <Page Update="Views\CertificadosView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

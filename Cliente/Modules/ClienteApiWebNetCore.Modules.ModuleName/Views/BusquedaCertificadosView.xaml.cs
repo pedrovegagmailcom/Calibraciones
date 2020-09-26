@@ -5,10 +5,10 @@ using System.Windows.Controls;
 namespace ClienteApiWebNetCore.Modules.ModuleName.Views
 {
     
-    public partial class SeleccionCertificadoView : UserControl
+    public partial class BusquedaCertificadosView : UserControl
     {
         
-        public SeleccionCertificadoView()
+        public BusquedaCertificadosView()
         {
             InitializeComponent();
             

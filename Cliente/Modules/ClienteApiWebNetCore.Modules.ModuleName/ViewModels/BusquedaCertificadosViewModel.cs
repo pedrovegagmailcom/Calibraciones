@@ -5,7 +5,7 @@ using Prism.Regions;
 
 namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
 {
-    public class SeleccionCertificadoViewModel : RegionViewModelBase
+    public class BusquedaCertificadosViewModel : RegionViewModelBase
     {
         private string _message;
         private IServicioUsuarios _servicioUsuarios;
@@ -29,7 +29,7 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
 
       
 
-        public SeleccionCertificadoViewModel(IRegionManager regionManager,IServicioSesion servicioSesion) :
+        public BusquedaCertificadosViewModel(IRegionManager regionManager,IServicioSesion servicioSesion) :
             base(regionManager)
         {
 
