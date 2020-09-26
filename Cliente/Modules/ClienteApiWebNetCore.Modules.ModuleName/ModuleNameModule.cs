@@ -21,12 +21,15 @@ namespace ClienteApiWebNetCore.Modules.ModuleName
         {
             _regionManager.RequestNavigate(RegionNames.ContentRegion, "ViewB");
             _regionManager.RequestNavigate(RegionNames.StatusRegion, "EstadoView");
+            _regionManager.RequestNavigate(RegionNames.MenuSuperior, "MenuSuperiorView");
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterForNavigation<MenuSuperiorView>();
             containerRegistry.RegisterForNavigation<ViewB>();
             containerRegistry.RegisterForNavigation<EstadoView>();
+            containerRegistry.RegisterForNavigation<SeleccionCertificadoView>();
         }
     }
 }

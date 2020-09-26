@@ -12,4 +12,12 @@
     <ProjectReference Include="..\..\Services\ClienteApiWebNetCore.Services.Interfaces\ClienteApiWebNetCore.Services.Interfaces.csproj" />
     <ProjectReference Include="..\..\Services\ClienteApiWebNetCore.Services\ClienteApiWebNetCore.Services.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\MenuSuperiorView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SeleccionCertificadoView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
 </Project>
