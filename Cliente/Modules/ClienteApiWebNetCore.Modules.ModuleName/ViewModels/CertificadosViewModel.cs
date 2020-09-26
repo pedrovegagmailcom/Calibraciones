@@ -48,13 +48,15 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
 
         }
 
-        
 
-        public override void OnNavigatedTo(NavigationContext navigationContext)
+
+        public async void IniciarDatosControl()
         {
-            //do something
+
+            ListaCertificados = await _servicioCertificados.BuscarCertificadosAsync();
+            
         }
 
-        
+
     }
 }

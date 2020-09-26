@@ -6,7 +6,7 @@
              prism:ViewModelLocator.AutoWireViewModel="True" 
              Width="1200" Height="800">
     <Grid>
-        <DataGrid ItemsSource="{Binding}">
+        <DataGrid ItemsSource="{Binding ListaCertificados}" Loaded="DataGrid_Loaded">
             
             
         </DataGrid>

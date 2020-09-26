@@ -25,6 +25,7 @@ namespace ClienteApiWebNetCore
             containerRegistry.Register<IServicioServidor, ServicioServidor>();
             containerRegistry.RegisterSingleton<IServicioClientes, ServicioClientes>();
             containerRegistry.RegisterSingleton<IServicioUsuarios, ServicioUsuarios>();
+            containerRegistry.RegisterSingleton<IServicioCertificados, ServicioCertificados>();
 
         }
 
