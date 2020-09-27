@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:ClienteApiWebNetCore.Modules.ModuleName.Views"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True" 
-             Width="1200" Height="800">
+             Width="auto" Height="auto">
     <Grid>
         <DataGrid ItemsSource="{Binding ListaCertificados}" Loaded="DataGrid_Loaded">
             

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using ApiWebNetCore.DTOS;
 using ApiWebNetCore.Repositorio;
@@ -36,6 +37,11 @@ namespace ApiWebNetCore.Controllers
             return Ok(certificadoID);
         }
 
-        
+        [HttpGet]
+        public async Task<List<CertificadoDTO>> Get()
+        {
+            var certificados = await _certificadosRepositorio.ConseguirCertificadosAsync();
+            return certificados;
+        }
     }
 }

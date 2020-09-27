@@ -9,5 +9,6 @@ namespace ApiWebNetCore.Repositorio
     public interface ICertificadosRepositorio
     {
         Task<Guid> AgregarCertificado(CertificadoDTO certificadoDTO);
+        Task<List<CertificadoDTO>> ConseguirCertificadosAsync();
     }
 }

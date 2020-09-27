@@ -13,7 +13,7 @@
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
         <ContentControl Grid.Row="0" prism:RegionManager.RegionName="{x:Static core:RegionNames.MenuSuperior}" />
-        <ContentControl Grid.Row="1" prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
+        
         <ContentControl Grid.Row="2" prism:RegionManager.RegionName="{x:Static core:RegionNames.StatusRegion}" />
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions >
@@ -21,6 +21,7 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <ContentControl Grid.Column="0" prism:RegionManager.RegionName="{x:Static core:RegionNames.Lateral}" />
+            <ContentControl Grid.Column="1" prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
             <Rectangle Grid.Column="0" Fill="LightGray"></Rectangle>
         </Grid>
     </Grid>

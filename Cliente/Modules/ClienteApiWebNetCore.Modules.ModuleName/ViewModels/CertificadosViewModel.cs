@@ -14,8 +14,6 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
         private IServicioCertificados _servicioCertificados;
 
 
-
-
         private CertificadoDTO _certificadoSeleccionado;
         public CertificadoDTO CertificadoSeleccionado
         {
@@ -39,13 +37,9 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
         public CertificadosViewModel(IRegionManager regionManager, IServicioCertificados servicioCertificados) :
             base(regionManager)
         {
-
            
-            
             _regionManager = regionManager;
             _servicioCertificados = servicioCertificados;
-
-
         }
 
 
