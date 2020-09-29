@@ -1,7 +1,10 @@
 ﻿using ClienteApiWebNetCore.Core.Mvvm;
 using ClienteApiWebNetCore.Dtos.Seguridad;
+using ClienteApiWebNetCore.Modules.ModuleName.Views;
 using ClienteApiWebNetCore.Services.Interfaces;
+using Prism.Commands;
 using Prism.Regions;
+using System.Windows;
 
 namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
 {
@@ -26,7 +29,7 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
             
         }
 
-
+        public DelegateCommand NuevoCertificadoCommand { get; set; }
       
 
         public MenuSuperiorViewModel(IRegionManager regionManager,IServicioSesion servicioSesion) :
@@ -36,15 +39,26 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
            
             _servicioSesion = servicioSesion;
             _regionManager = regionManager;
-            
+
+            NuevoCertificadoCommand = new DelegateCommand(NuevoCertificado);
+
+
         }
 
-        
 
-        public override void OnNavigatedTo(NavigationContext navigationContext)
+        private void NuevoCertificado()
         {
-            //do something
+            var login = new NuevoCertificadoView();
+            Window window = new Window
+            {
+                Title = "Login",
+                Content = login,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                SizeToContent = SizeToContent.WidthAndHeight
+            };
+            window.ShowDialog();
         }
+
 
         
     }
