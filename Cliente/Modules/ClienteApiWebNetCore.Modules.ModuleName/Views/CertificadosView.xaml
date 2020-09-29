@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="ClienteApiWebNetCore.Modules.ModuleName.Views.CertificadosView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ClienteApiWebNetCore.Modules.ModuleName.Views"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True" 
+             Width="auto" Height="auto">
+    <Grid>
+        <DataGrid ItemsSource="{Binding ListaCertificados}" Loaded="DataGrid_Loaded">
+            
+            
+        </DataGrid>
+
+
+        
+    </Grid>
+</UserControl>

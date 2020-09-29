@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:ClienteApiWebNetCore.Modules.ModuleName.Views"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True" Loaded="UserControl_Loaded" 
-             Width="600" Height="200">
+             Width="400" Height="200">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"></RowDefinition>
@@ -20,14 +20,27 @@
                   SelectedItem="{Binding UsuarioSeleccionado}"  
                   DisplayMemberPath="CodigoUsuario"/>
 
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
             
-        
-        <Button Grid.Row="2" x:Name="btnLogin" Width="200" Height="25" VerticalAlignment="Top"
+        <Button Grid.Column="1" x:Name="btnLogin" Width="120" Height="25" VerticalAlignment="Top"
                     HorizontalAlignment="Center"
                     Command="{Binding LoginCommand}" 
                     Content="Login" 
                     IsDefault="True">
         </Button>
+        <Button Grid.Column="2" x:Name="btnCancel" Width="80" Height="25" VerticalAlignment="Top"
+                    HorizontalAlignment="Center"
+                    Command="{Binding CancelarCommand}" 
+                    Content="Cancelar" 
+                    IsDefault="True">
+        </Button>
+        </Grid>
 
         <TextBlock Grid.Row="0" Text="{Binding Message}" FontSize="30" HorizontalAlignment="Center"></TextBlock>
     </Grid>

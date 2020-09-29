@@ -21,6 +21,7 @@ namespace ClienteApiWebNetCore.Views
             {
                 Title = "Login",
                 Content = login,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen,
                 SizeToContent = SizeToContent.WidthAndHeight
             };
             window.ShowDialog();
