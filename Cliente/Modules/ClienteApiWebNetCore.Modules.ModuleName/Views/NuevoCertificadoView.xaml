@@ -12,18 +12,18 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="0" Text="Numero de Certificado" FontSize="20" VerticalAlignment="Center" Margin="5"></TextBlock>
         <TextBlock Grid.Row="1" Grid.Column="0" Text="Escalas" FontSize="20" VerticalAlignment="Center" Margin="5"></TextBlock>
         <TextBlock Grid.Row="2" Grid.Column="0" Text="Repeticiones" FontSize="20" VerticalAlignment="Center" Margin="5"></TextBlock>
-        <TextBox Grid.Row="0" Grid.Column="1"  Text="{Binding NumeroCertificado}" VerticalAlignment="Center" Height="25"></TextBox>
-        <TextBox Grid.Row="1" Grid.Column="1"  Text="{Binding NumeroEscalas}" VerticalAlignment="Center" Height="25"></TextBox>
-        <TextBox Grid.Row="2" Grid.Column="1"  Text="{Binding NumeroRepeticiones}" VerticalAlignment="Center" Height="25"></TextBox>
+        <TextBox Grid.Row="0" Grid.Column="1" FontSize="15" TextAlignment="Right" Text="{Binding NumeroCertificado}" VerticalAlignment="Center" Height="25" Margin="5,0,5,0"></TextBox>
+        <TextBox Grid.Row="1" Grid.Column="1" FontSize="15" TextAlignment="Right"  Text="{Binding NumeroEscalas}" VerticalAlignment="Center" Height="25" Margin="5,0,5,0"></TextBox>
+        <TextBox Grid.Row="2" Grid.Column="1" FontSize="15" TextAlignment="Right" Text="{Binding NumeroRepeticiones}" VerticalAlignment="Center" Height="25" Margin="5,0,5,0"></TextBox>
 
         <Button Grid.Row="3" Grid.Column="0" x:Name="btnCrearCertificado" Width="200" Height="30" FontSize="20" VerticalAlignment="Bottom"
                     Margin="5,1,1,10"
