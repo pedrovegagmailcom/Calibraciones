@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ApiWebNetCore.Modelo
+namespace ApiWebNetCore.DTOS
 {
-    public class PuntoCalibracion
+    public class PuntoCalibracionDTO
     {
         public Guid PuntoCalibracionId { get; set; }
 
-        //public Escala Escala { get; set; }
-        //public List<Medicion> Mediciones { get; set; }
+        public EscalaDTO Escala { get; set; }
+        public List<MedicionDTO> Mediciones { get; set; }
     }
 }
