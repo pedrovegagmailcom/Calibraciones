@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace ApiWebNetCore.Context
 {
@@ -23,7 +22,7 @@ namespace ApiWebNetCore.Context
                 throw ex;
             }
 
-            var certificado = context.Certificados.Include(n => n.Escalas.Select(m=>m.Mediciones)).First();
+            var certificado = context.Certificados.Include(n => n.Escalas).ThenInclude(n=>n.Mediciones).First();
 
             if (context.Clientes.Any())
             {
@@ -122,10 +121,10 @@ namespace ApiWebNetCore.Context
 
             
 
-            escala.Mediciones.Add(new Medicion() { MedicionId = new Guid(), Certificado = certificado, Escala = escala, NumeroRepeticion = 1, PuntoCalibracion = 1, Mesurando = 0.99, Patron = 10 });
-            escala.Mediciones.Add(new Medicion() { MedicionId = new Guid(), Certificado = certificado, Escala = escala, NumeroRepeticion = 1, PuntoCalibracion = 2, Mesurando = 20.3, Patron = 20 });
-            escala.Mediciones.Add(new Medicion() { MedicionId = new Guid(), Certificado = certificado, Escala = escala, NumeroRepeticion = 1, PuntoCalibracion = 3, Mesurando = 31,   Patron = 30 });
-            escala.Mediciones.Add(new Medicion() { MedicionId = new Guid(), Certificado = certificado, Escala = escala, NumeroRepeticion = 1, PuntoCalibracion = 4, Mesurando = 39.8, Patron = 40 });
+            escala.Mediciones.Add(new Medicion() { MedicionId = new Guid(), Escala = escala, NumeroRepeticion = 1, PuntoCalibracion = 1, Mesurando = 0.99, Patron = 10 });
+            escala.Mediciones.Add(new Medicion() { MedicionId = new Guid(), Escala = escala, NumeroRepeticion = 1, PuntoCalibracion = 2, Mesurando = 20.3, Patron = 20 });
+            escala.Mediciones.Add(new Medicion() { MedicionId = new Guid(), Escala = escala, NumeroRepeticion = 1, PuntoCalibracion = 3, Mesurando = 31,   Patron = 30 });
+            escala.Mediciones.Add(new Medicion() { MedicionId = new Guid(), Escala = escala, NumeroRepeticion = 1, PuntoCalibracion = 4, Mesurando = 39.8, Patron = 40 });
 
             context.Add(escala);
 

@@ -14,6 +14,6 @@ namespace ApiWebNetCore.Modelo
         public double Mesurando { get; set; }
 
         public Escala Escala { get; set; }
-        public Certificado Certificado { get; set; }
+        
     }
 }

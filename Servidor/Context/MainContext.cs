@@ -28,7 +28,6 @@ namespace ApiWebNetCore.Context
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Certificado> Certificados { get; set; }
         public DbSet<Escala> Escalas { get; set; }
-        //public DbSet<PuntoCalibracion> PuntosCalibracion { get; set; }
         public DbSet<Medicion> Mediciones { get; set; }
 
 
