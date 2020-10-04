@@ -24,7 +24,7 @@ namespace ApiWebNetCore.Repositorio
 
         public async Task<CertificadoDTO> BuscarCertificadoAsync(int NumeroCertificado)
         {
-            var resultadoBBDD = await _contexto.Certificados.FirstOrDefaultAsync(u => u.NumeroCertificado == NumeroCertificado);
+            var resultadoBBDD = await _contexto.Certificados.Include(c=>c.Escalas).ThenInclude(e=>e.Mediciones).FirstOrDefaultAsync(u => u.NumeroCertificado == NumeroCertificado);
             return _mapper.Map<CertificadoDTO>(resultadoBBDD);
         }
 

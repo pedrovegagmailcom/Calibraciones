@@ -10,5 +10,6 @@ namespace ApiWebNetCore.DTOS
         public Guid CertificadoId { get; set; }
         public int NumeroCertificado { get; set; }
         public int NumeroEscalas { get; set; }
+        public List<EscalaDTO> Escalas { get; set; }
     }
 }

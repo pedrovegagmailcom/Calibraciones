@@ -13,7 +13,7 @@ namespace ApiWebNetCore.Context
 
             try
             {
-                //context.Database.EnsureDeleted();
+                context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();
             }
             catch (Exception ex)
@@ -22,7 +22,7 @@ namespace ApiWebNetCore.Context
                 throw ex;
             }
 
-            var certificado = context.Certificados.Include(n => n.Escalas).ThenInclude(n=>n.Mediciones).First();
+            //var certificado = context.Certificados.Include(n => n.Escalas).ThenInclude(n=>n.Mediciones).First();
 
             if (context.Clientes.Any())
             {
