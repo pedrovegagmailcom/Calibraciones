@@ -10,5 +10,6 @@ namespace ApiWebNetCore.Repositorio
     {
         Task<Guid> AgregarCertificado(CertificadoDTO certificadoDTO);
         Task<List<CertificadoDTO>> ConseguirCertificadosAsync();
+        Task<CertificadoDTO> BuscarCertificadoAsync(int NumeroCertificado);
     }
 }

@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ApiWebNetCore.Modelo
+namespace ClienteApiWebNetCore.Dtos
 {
-    public class Medicion
+    public class MedicionDTO
     {
         public Guid MedicionId { get; set; }
-        public int PuntoCalibracion { get; set; }
         public int NumeroRepeticion { get; set; }
         public double Patron { get; set; }
         public double Mesurando { get; set; }
 
-        public Escala Escala { get; set; }
-        
+       
     }
 }

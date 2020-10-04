@@ -40,6 +40,7 @@ namespace ApiWebNetCore.Controllers
         [HttpGet]
         public async Task<List<CertificadoDTO>> Get()
         {
+            var cer = await _certificadosRepositorio.BuscarCertificadoAsync(1);
             var certificados = await _certificadosRepositorio.ConseguirCertificadosAsync();
             return certificados;
         }

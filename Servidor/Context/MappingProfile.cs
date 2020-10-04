@@ -12,8 +12,9 @@ namespace ApiWebNetCore.Context
         {
 
             CreateMap<Usuario, UsuarioSesionDTO>().ReverseMap();
-            
             CreateMap<Certificado, CertificadoDTO>().ReverseMap();
+            CreateMap<Escala, EscalaDTO>().ReverseMap();
+            CreateMap<Medicion, MedicionDTO>().ReverseMap();
         }
     }
 }

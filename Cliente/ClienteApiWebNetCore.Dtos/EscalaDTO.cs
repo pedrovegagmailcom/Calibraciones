@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ApiWebNetCore.Modelo
+namespace ClienteApiWebNetCore.Dtos
 {
-    public class Escala
+    public class EscalaDTO
     {
         public Guid EscalaId { get; set; }
         public int NumeroPuntosCalibracion { get; set; }
         public int NumeroRepeticiones { get; set; }
-        public Certificado Certificado { get; set; }
-        public List<Medicion> Mediciones { get; set; }
+        public List<MedicionDTO> Mediciones;
     }
 }

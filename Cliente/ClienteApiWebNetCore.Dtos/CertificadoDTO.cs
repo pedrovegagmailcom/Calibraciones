@@ -10,6 +10,6 @@ namespace ClienteApiWebNetCore.Dtos
         public int NumeroCertificado { get; set; }
         public int NumeroEscalas { get; set; }
 
-        //public List<Escala> Escalas { get; set; }
+        public List<EscalaDTO> Escalas { get; set; }
     }
 }
