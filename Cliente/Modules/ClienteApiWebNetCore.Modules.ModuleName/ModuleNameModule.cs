@@ -27,7 +27,7 @@ namespace ClienteApiWebNetCore.Modules.ModuleName
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<MenuSuperiorView>();
-            containerRegistry.RegisterForNavigation<ViewB>();
+            containerRegistry.RegisterForNavigation<CertificadoView>();
             containerRegistry.RegisterForNavigation<EstadoView>();
             containerRegistry.RegisterForNavigation<CertificadosView>();
             containerRegistry.RegisterForNavigation<BusquedaCertificadosView>();

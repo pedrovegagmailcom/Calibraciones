@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="ClienteApiWebNetCore.Modules.ModuleName.Views.ViewB"
+﻿<UserControl x:Class="ClienteApiWebNetCore.Modules.ModuleName.Views.EscalaView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ClienteApiWebNetCore.Modules.ModuleName.Views"
@@ -6,8 +6,10 @@
              prism:ViewModelLocator.AutoWireViewModel="True" 
              Width="1200" Height="800">
     <Grid>
+        <DataGrid ItemsSource="ListaMediciones">
+            
+        </DataGrid>
 
-
-        <TextBlock Grid.Row="0" Text="{Binding Message}" FontSize="30" HorizontalAlignment="Center"></TextBlock>
+        
     </Grid>
 </UserControl>

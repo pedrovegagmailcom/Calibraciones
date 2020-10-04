@@ -7,10 +7,10 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.Views
     /// <summary>
     /// Interaction logic for ViewA.xaml
     /// </summary>
-    public partial class ViewB : UserControl
+    public partial class EscalaView : UserControl
     {
         
-        public ViewB()
+        public EscalaView()
         {
             InitializeComponent();
             

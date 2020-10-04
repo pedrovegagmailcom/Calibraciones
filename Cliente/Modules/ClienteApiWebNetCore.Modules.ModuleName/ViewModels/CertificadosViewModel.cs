@@ -18,7 +18,11 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
         public CertificadoDTO CertificadoSeleccionado
         {
             get { return _certificadoSeleccionado; }
-            set { SetProperty(ref _certificadoSeleccionado, value); }
+            set 
+            { 
+                SetProperty(ref _certificadoSeleccionado, value); 
+
+            }
         }
 
         private List<CertificadoDTO> _listaCertificados;
