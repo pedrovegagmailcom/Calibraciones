@@ -10,6 +10,6 @@ namespace ApiWebNetCore.DTOS
         public Guid EscalaId { get; set; }
         public int NumeroPuntosCalibracion { get; set; }
         public int NumeroRepeticiones { get; set; }
-        public List<MedicionDTO> Mediciones;
+        public List<MedicionDTO> Mediciones { get; set; }
     }
 }

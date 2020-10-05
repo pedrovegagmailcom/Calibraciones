@@ -9,5 +9,6 @@ namespace ClienteApiWebNetCore.Services.Interfaces
     public interface IServicioCertificados
     {
         Task<List<CertificadoDTO>> BuscarCertificadosAsync();
+        Task<CertificadoDTO> BuscarCertificadoAsync(int NumeroCertificado);
     }
 }

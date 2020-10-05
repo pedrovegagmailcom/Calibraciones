@@ -20,5 +20,12 @@ namespace ClienteApiWebNetCore.Services
             return res;
 
         }
+
+        public async Task<CertificadoDTO> BuscarCertificadoAsync(int NumeroCertificado)
+        {
+            var res = await _servicioServidor.GetAsync<CertificadoDTO>("api/certificados/" + NumeroCertificado);
+            return res;
+
+        }
     }
 }

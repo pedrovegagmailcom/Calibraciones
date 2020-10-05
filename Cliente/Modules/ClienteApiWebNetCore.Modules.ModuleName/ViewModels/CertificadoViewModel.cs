@@ -8,44 +8,41 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
 {
     public class CertificadoViewModel : RegionViewModelBase
     {
-        private string _message;
-        private IServicioUsuarios _servicioUsuarios;
-        private IServicioSesion _servicioSesion;
+        
+        private IServicioCertificados _servicioCertificados;
         private IRegionManager _regionManager;
 
-        
 
-        private UsuarioSesionDTO _usuarioSeleccionado;
-        public UsuarioSesionDTO UsuarioSeleccionado
+
+        private CertificadoDTO _certificadoSeleccionado;
+        public CertificadoDTO CertificadoSeleccionado
         {
-            get { return _usuarioSeleccionado; }
-            set { SetProperty(ref _usuarioSeleccionado, value); }
+            get { return _certificadoSeleccionado; }
+            set
+            {
+                SetProperty(ref _certificadoSeleccionado, value);
+                
+            }
         }
-        public string Message
-        {
-            get { return _servicioSesion.UsuarioSesion.Nombre; }
-            
-        }
 
 
-      
-
-        public CertificadoViewModel(IRegionManager regionManager,IServicioSesion servicioSesion) :
+        public CertificadoViewModel(IRegionManager regionManager, IServicioCertificados servicioCertificados) :
             base(regionManager)
         {
 
-           
-            _servicioSesion = servicioSesion;
+
+            _servicioCertificados = servicioCertificados;
             _regionManager = regionManager;
             
         }
 
 
 
-        public override void OnNavigatedTo(NavigationContext navigationContext)
+        public override async void OnNavigatedTo(NavigationContext navigationContext)
         {
-            CertificadoDTO id = navigationContext.Parameters["certificado"] as CertificadoDTO;
-            
+            CertificadoDTO certificadoDTO = navigationContext.Parameters["certificado"] as CertificadoDTO;
+            var certificado = await _servicioCertificados.BuscarCertificadoAsync(certificadoDTO.NumeroCertificado);
+
         }
 
 

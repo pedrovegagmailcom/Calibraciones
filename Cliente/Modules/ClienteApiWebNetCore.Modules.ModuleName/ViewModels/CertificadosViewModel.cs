@@ -38,11 +38,6 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
         }
 
 
-
-        public event EventHandler<CertificadoDTO> ProcessCompleted;
-
-
-
         public CertificadosViewModel(IRegionManager regionManager, IServicioCertificados servicioCertificados, IEventAggregator eventAggregator) :
             base(regionManager)
         {
