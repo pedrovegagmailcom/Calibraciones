@@ -20,7 +20,7 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.Views
             
         }
 
-        private void DataGrid_Loaded(object sender, RoutedEventArgs e)
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             ((CertificadosViewModel)DataContext).IniciarDatosControl();
         }

@@ -1,4 +1,5 @@
 ﻿using ClienteApiWebNetCore.Core.Mvvm;
+using ClienteApiWebNetCore.Dtos;
 using ClienteApiWebNetCore.Dtos.Seguridad;
 using ClienteApiWebNetCore.Services.Interfaces;
 using Prism.Regions;
@@ -39,13 +40,14 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
             
         }
 
-        
+
 
         public override void OnNavigatedTo(NavigationContext navigationContext)
         {
-            //do something
+            CertificadoDTO id = navigationContext.Parameters["certificado"] as CertificadoDTO;
+            
         }
 
-        
+
     }
 }

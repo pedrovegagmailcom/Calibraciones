@@ -1,8 +1,11 @@
-﻿using ClienteApiWebNetCore.Core.Mvvm;
+﻿using ClienteApiWebNetCore.Core;
+using ClienteApiWebNetCore.Core.Mvvm;
 using ClienteApiWebNetCore.Dtos;
 using ClienteApiWebNetCore.Dtos.Seguridad;
 using ClienteApiWebNetCore.Services.Interfaces;
+using Prism.Events;
 using Prism.Regions;
+using System;
 using System.Collections.Generic;
 
 namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
@@ -18,10 +21,12 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
         public CertificadoDTO CertificadoSeleccionado
         {
             get { return _certificadoSeleccionado; }
-            set 
-            { 
-                SetProperty(ref _certificadoSeleccionado, value); 
-
+            set
+            {
+                SetProperty(ref _certificadoSeleccionado, value);
+                var parameters = new NavigationParameters();
+                parameters.Add("certificado", _certificadoSeleccionado);
+                _regionManager.RequestNavigate(RegionNames.ContentRegion, "CertificadoView", parameters);
             }
         }
 
@@ -33,17 +38,18 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
         }
 
 
-        
+
+        public event EventHandler<CertificadoDTO> ProcessCompleted;
 
 
-      
 
-        public CertificadosViewModel(IRegionManager regionManager, IServicioCertificados servicioCertificados) :
+        public CertificadosViewModel(IRegionManager regionManager, IServicioCertificados servicioCertificados, IEventAggregator eventAggregator) :
             base(regionManager)
         {
            
             _regionManager = regionManager;
             _servicioCertificados = servicioCertificados;
+            
         }
 
 

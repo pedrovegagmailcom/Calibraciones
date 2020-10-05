@@ -4,14 +4,17 @@
              xmlns:local="clr-namespace:ClienteApiWebNetCore.Modules.ModuleName.Views"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True" 
-             Width="auto" Height="auto">
+             Width="auto" Height="auto" Loaded="UserControl_Loaded">
     <Grid>
-        <DataGrid ItemsSource="{Binding ListaCertificados}" Loaded="DataGrid_Loaded">
-            
-            
-        </DataGrid>
+        <DataGrid ItemsSource="{Binding ListaCertificados}" IsReadOnly="True"
+                  SelectedItem="{Binding CertificadoSeleccionado}"
+                  
+                  />
 
 
-        
+
+
+
+
     </Grid>
 </UserControl>
