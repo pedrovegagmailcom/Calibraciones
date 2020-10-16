@@ -40,8 +40,8 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
 
         public override async void OnNavigatedTo(NavigationContext navigationContext)
         {
-            CertificadoDTO certificadoDTO = navigationContext.Parameters["certificado"] as CertificadoDTO;
-            var certificado = await _servicioCertificados.BuscarCertificadoAsync(certificadoDTO.NumeroCertificado);
+            CertificadoSeleccionado = navigationContext.Parameters["certificado"] as CertificadoDTO;
+            //CertificadoSeleccionado = await _servicioCertificados.BuscarCertificadoAsync(certificadoDTO.NumeroCertificado);
 
         }
 

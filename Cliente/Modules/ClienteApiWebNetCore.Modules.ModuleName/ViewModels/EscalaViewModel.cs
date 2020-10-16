@@ -29,10 +29,10 @@ namespace ClienteApiWebNetCore.Modules.ModuleName.ViewModels
         }
 
 
-        public EscalaViewModel(EscalaDTO escalaDTO)
+        public EscalaViewModel()
         {
-            _escalaDTO = escalaDTO;
-            ListaMediciones = _escalaDTO.Mediciones;
+            //_escalaDTO = escalaDTO;
+            //ListaMediciones = _escalaDTO.Mediciones;
         }
 
 
